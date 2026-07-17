@@ -3,120 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>মাসুম | লেখক ও কনটেন্ট ক্রিয়েটর</title>
-<meta name="description" content="মাসুম — লেখক ও কনটেন্ট ক্রিয়েটর। ৬টি প্রকাশিত বইয়ের রচয়িতা — ব্যক্তিগত অভিজ্ঞতা, প্রেম-ভালোবাসা ও ইংরেজি শেখা নিয়ে। প্রতিদিন লিখি ভাবনা, গল্প ও অনুপ্রেরণার কথা।">
-<meta name="keywords" content="masum, masumcpex, মাসুম লেখক, বাংলা বই, একাকিত্বের নোটবুক, ইংরেজি শেখার বই">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>মাসুম | masumcpex</title>
+<meta name="description" content="মাসুম বিল্লাহ — লেখক, শিক্ষার্থী, বিল্ডার। বই, জার্নাল, আর্টিকেল ও প্রজেক্টের ব্যক্তিগত ডিজিটাল খাতা।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="nav-wrap">
-    <div class="brand">মাসুম <span>।</span></div>
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <nav>
-      <ul id="navList">
-        <li><a href="#about">পরিচিতি</a></li>
-        <li><a href="#explore">এক্সপ্লোর</a></li>
-        <li><a href="#mystery">রহস্য গেম</a></li>
-        <li><a href="#connect">যোগাযোগ</a></li>
-      </ul>
+<!-- ================= HEADER / NAV ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand" data-nav="home">
+      <span class="brand-mark">masum</span>
+      <span class="brand-name">cpex</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" data-nav="home"><span class="ic">🏠</span>Home</a>
+      <a href="#about" data-nav="about"><span class="ic">👤</span>About</a>
+      <a href="#library" data-nav="library"><span class="ic">📚</span>Library</a>
+      <a href="#journal" data-nav="journal"><span class="ic">📖</span>Journal</a>
+      <a href="#projects" data-nav="projects"><span class="ic">💻</span>Projects</a>
+      <a href="#articles" data-nav="articles"><span class="ic">📝</span>Articles</a>
+      <a href="#mystery" data-nav="mystery"><span class="ic">🎮</span>Mystery</a>
+      <a href="knowledge-hub.html"><span class="ic">🗂️</span>Knowledge Hub</a>
+      <a href="#contact" data-nav="contact"><span class="ic">📩</span>Contact</a>
     </nav>
-    <button class="icon-toggle" id="darkToggle">🌙</button>
+
+    <div class="header-tools">
+      <button class="icon-btn" id="searchToggle" aria-label="সার্চ">🔍</button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="মেনু">☰</button>
+    </div>
+  </div>
+
+  <!-- সার্চ বার -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-panel-inner">
+      <input type="text" id="searchInput" placeholder="বই, জার্নাল, আর্টিকেল বা প্রজেক্ট খুঁজুন...">
+      <button class="icon-btn" id="searchClose">✕</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="about">
-  <div class="tagline">লিখি, শেখাই, ভাবনা শেয়ার করি</div>
-  <h1>শব্দের ভেতর দিয়ে <em>জীবনকে</em> ছোঁয়ার চেষ্টা</h1>
-  <p style="color:var(--muted); max-width:520px; margin:0 auto 24px;">আমি মাসুম। বই লিখতে ভালোবাসি, অনুভূতি ও ইসলামিক সজাগতা ছড়িয়ে দিতে পছন্দ করি এবং একই সাথে স্মার্ট ওয়েব টুলস তৈরি করি।</p>
-  <a href="#explore" class="btn">এক্সপ্লোর করুন</a>
-</section>
+<main>
 
-<!-- FEATURED -->
-<section class="block">
-  <div class="block-inner">
-    <div class="block-head">
-      <div class="kicker">সাম্প্রতিক</div>
-      <h2>ফিচার্ড</h2>
+  <!-- ================= HOME ================= -->
+  <section class="page active" id="home">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" id="heroPhoto" src="" alt="Masum Billah">
+      </div>
+      <h1 class="hero-name" id="heroName"></h1>
+      <p class="hero-role" id="heroRole"></p>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <a class="btn btn-primary" id="heroCta" href="#library"></a>
     </div>
-    <div class="featured-grid" id="featuredGrid"></div>
-  </div>
-</section>
 
-<!-- EXPLORE: search + filter + unified grid (books/journal/apps) -->
-<section class="block" id="explore" style="background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="block-inner">
-    <div class="block-head">
-      <div class="kicker">সবকিছু একসাথে</div>
-      <h2>বই, জার্নাল ও ওয়েব অ্যাপ</h2>
-      <p>খুঁজুন অথবা ক্যাটাগরি অনুযায়ী ফিল্টার করুন।</p>
+    <!-- Homepage highlight strips -->
+    <div class="section-block">
+      <div class="eyebrow">সর্বশেষ</div>
+      <h2 class="section-title">এই মুহূর্তে যা নতুন</h2>
+      <div class="highlight-grid" id="homeHighlights"><!-- JS injects: Latest Book / Journal / Article / Featured Project --></div>
     </div>
-    <div class="search-wrap">
-      <input type="text" id="searchBox" placeholder="বই, জার্নাল বা অ্যাপ খুঁজুন...">
+
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="page" id="about">
+    <div class="page-inner narrow">
+      <div class="eyebrow">পরিচিতি</div>
+      <h2 class="section-title" id="aboutTitle"></h2>
+      <div class="about-grid">
+        <img class="about-photo" id="aboutPhoto" src="" alt="Masum">
+        <div class="about-text" id="aboutText"></div>
+      </div>
+      <div class="stat-row" id="aboutStats"></div>
     </div>
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="সব">সব</button>
-      <button class="filter-btn" data-filter="বই">বই</button>
-      <button class="filter-btn" data-filter="ওয়েব অ্যাপ">ওয়েব অ্যাপ</button>
-      <button class="filter-btn" data-filter="জার্নাল">জার্নাল</button>
-      <button class="filter-btn" data-filter="টেক">টেক</button>
-      <button class="filter-btn" data-filter="ইংরেজি">ইংরেজি</button>
+  </section>
+
+  <!-- ================= LIBRARY ================= -->
+  <section class="page" id="library">
+    <div class="page-inner">
+      <div class="eyebrow">Library</div>
+      <h2 class="section-title">আমার প্রকাশিত ই-বুক সমূহ</h2>
+      <p class="section-sub">নিচের তালিকা থেকে আপনার পছন্দের বইটি নির্বাচন করুন এবং সরাসরি পড়ুন বা ডাউনলোড করুন।</p>
+      <div class="card-grid" id="bookGrid"><!-- JS injects book cards --></div>
     </div>
-    <div class="content-grid" id="contentGrid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- MYSTERY -->
-<section class="block mystery" id="mystery">
-  <div class="block-inner">
-    <div class="kicker">⚠️ SYSTEM NOTICE</div>
-    <h2>CICADA 3301 MYSTERY PUZZLE</h2>
-    <p>একটি অত্যন্ত জটিল ধাঁধা এবং বুদ্ধিমত্তার খেলা আপনার জন্য অপেক্ষা করছে। আপনি কি চ্যালেঞ্জটি নিতে প্রস্তুত?</p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&bgcolor=050505&color=3ee06a&data=https://docs.google.com/forms/d/e/1FAIpQLSeUXTUT5i4McPtrl27yQj3L3BYl_wGWjVKEDpnMpLnD8Sn3YQ/viewform" alt="Mystery QR Code">
-    <p style="font-size:.85rem;">উপরের QR কোডটি স্ক্যান করুন অথবা নিচের বাটনে ক্লিক করে ধাঁধার রহস্য ভেদ করুন।</p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUXTUT5i4McPtrl27yQj3L3BYl_wGWjVKEDpnMpLnD8Sn3YQ/viewform" target="_blank">মিশনে প্রবেশ করুন</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="block" id="connect">
-  <div class="block-inner contact-box">
-    <h2 style="margin-bottom:10px;">কন্টাক্ট এবং নেটওয়ার্ক</h2>
-    <p style="color:var(--muted); margin-bottom:22px;">যেকোনো বিষয়ে সরাসরি ইমেইল, ফোন অথবা সোশ্যাল লিংকের মাধ্যমে যুক্ত হোন।</p>
-    <div class="contact-details">
-      <a href="tel:+8801133192963">📞 01133192963</a>
-      <a href="mailto:masumcpex@gmail.com">📧 masumcpex@gmail.com</a>
+  <!-- ================= JOURNAL ================= -->
+  <section class="page" id="journal">
+    <div class="page-inner">
+      <div class="eyebrow">Journal</div>
+      <h2 class="section-title">ব্যক্তিগত জার্নাল</h2>
+      <p class="section-sub">গল্প, অনুভূতি আর দৈনন্দিন ভাবনার পাতা।</p>
+      <div class="filter-row" id="journalFilters"><!-- JS injects category chips --></div>
+      <div class="list-grid" id="journalList"><!-- JS injects journal cards --></div>
     </div>
-    <div class="social-row" id="socialRow"></div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="brand">মাসুম ।</div>
-  <div style="font-size:.8rem; opacity:.8;">© ২০২৬ ডিজিটাল স্পেস। সর্বস্বত্ব সংরক্ষিত। | ডিজাইন ও ডেভেলপমেন্ট: মাসুম</div>
-</footer>
+  <!-- ================= PROJECTS ================= -->
+  <section class="page" id="projects">
+    <div class="page-inner">
+      <div class="eyebrow">Projects</div>
+      <h2 class="section-title">যা তৈরি করছি</h2>
+      <div class="card-grid projects-grid" id="projectGrid"><!-- JS injects project cards --></div>
+    </div>
+  </section>
 
-<button id="backToTop">↑</button>
+  <!-- ================= ARTICLES ================= -->
+  <section class="page" id="articles">
+    <div class="page-inner">
+      <div class="eyebrow">Articles</div>
+      <h2 class="section-title">ব্লগ ও লেখালেখি</h2>
+      <div class="filter-row" id="articleFilters"><!-- JS injects category chips --></div>
+      <div class="list-grid" id="articleList"><!-- JS injects article cards --></div>
+    </div>
+  </section>
 
-<!-- password modal for locked book -->
-<div class="modal-overlay" id="passwordModal">
+  <!-- ================= MYSTERY ================= -->
+  <section class="page" id="mystery">
+    <div class="page-inner narrow center">
+      <h2 class="mystery-title" id="mysteryTitle"></h2>
+      <p class="mystery-notice" id="mysteryNotice"></p>
+      <a class="btn btn-outline" id="mysteryBtn" href="#" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="page" id="contact">
+    <div class="page-inner narrow center">
+      <div class="eyebrow">যোগাযোগ</div>
+      <h2 class="section-title">কানেক্ট করুন</h2>
+      <p class="section-sub">যেকোনো বিষয়ে সরাসরি ইমেইল, ফোন অথবা সোশ্যাল লিংকের মাধ্যমে যুক্ত হোন।</p>
+      <p class="contact-line" id="contactPhone"></p>
+      <p class="contact-line" id="contactEmails"></p>
+      <div class="social-row" id="socialRow"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= READ MODAL (জার্নাল/আর্টিকেল বিস্তারিত পড়ার জন্য) ================= -->
+<div class="modal-overlay" id="readModal">
   <div class="modal-box">
-    <h3>🔒 এই বইটি সুরক্ষিত</h3>
-    <p style="color:var(--muted); font-size:.88rem;">প্রবেশ করতে পাসওয়ার্ড দিন</p>
-    <input type="password" id="modalPassword" placeholder="পাসওয়ার্ড">
-    <div class="modal-error" id="modalError"></div>
-    <div class="modal-actions">
-      <button class="btn btn-outline" onclick="closePasswordModal()">বাতিল</button>
-      <button class="btn" onclick="checkPassword()">প্রবেশ করুন</button>
-    </div>
+    <button class="icon-btn modal-close" id="modalClose">✕</button>
+    <div class="modal-eyebrow" id="modalCategory"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-date" id="modalDate"></div>
+    <div class="modal-content" id="modalContent"></div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p>মাসুম । © ২০২৬ ডিজিটাল স্পেস। সর্বস্বত্ব সংরক্ষিত়। | ডিজাইন ও ডেভেলপমেন্ট: <strong>মাসুম</strong></p>
+</footer>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
 </body>
   </html>
-  
+      
