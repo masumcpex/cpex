@@ -21,7 +21,7 @@ const SITE_DATA = {
     photo: "https://masumcpex.github.io/masumcpex/masum.png",
     paragraphs: [
       "আমি মাসুম। বই লিখতে ভালোবাসি, অনুভূতি ও জীবনের ছোট ছোট শিক্ষা ছড়িয়ে দিতে পছন্দ করি — একই সাথে স্মার্ট ওয়েব টুলস তৈরি করি।",
-      "লেখালেখি আমার কাছে অনুভূতি প্রকাশের একটি অন্যতম মাধ্যম। পাশাপাশি প্রোডাক্টিভ কোডিং সリューション তৈরি করে জীবনকে সহজ করতে আমি পছন্দ করি।"
+      "লেখালেখি আমার কাছে অনুভূতি প্রকাশের একটি অন্যতম মাধ্যম। পাশাপাশি প্রোডাক্টিভ কোডিং সলিউশন তৈরি করে জীবনকে সহজ করতে আমি পছন্দ করি।"
     ],
     stats: [
       { number: "৬টি", label: "সংরক্ষিত ই-বুক" },
@@ -136,7 +136,7 @@ const SITE_DATA = {
           <li><strong>ব্যর্থতাকে ফিডব্যাক হিসেবে দেখে</strong> — "আমি শেষ" না ভেবে ভাবে "কী শিখলাম?"</li>
           <li><strong>নিজের সাথে সহানুভূতিশীল ভাষায় কথা বলে</strong> — নিজের সমালোচক না হয়ে নিজের সহযোগী হয়</li>
         </ul>
-        <p style="background: #1B2A45; color: #F3ECDA; padding: 18px; border-radius: 8px; font-family: 'Noto Serif Bengali', serif; text-align: center; margin: 24px 0;">"ব্যর্থতা আপনার identity নয় — ব্যর্থতা শুধু আপনার পরবর্তী উন্নতির দিকনির্দেশনা।"</p>
+        <p style="background: #1B2A45; color: #F3ECDA; padding: 18px; border-radius: 8px; font-family: 'Noto Serif Bengali', serif; text-align: center; margin: 24px 0;">"ব্যর্থতা আপনার পরিচয় নয় — ব্যর্থতা শুধু আপনার পরবর্তী উন্নতির দিকনির্দেশনা।"</p>
         <div style="text-align: center; margin-top: 30px; font-weight: bold; color: #7A6F5D; border-top: 1px solid #ECE2C9; padding-top: 15px;">লিখেছেন: মাসুম</div>
       `
     },
@@ -181,13 +181,13 @@ const SITE_DATA = {
       image: "",
       excerpt: "AI কোড লিখে দিচ্ছে ঠিকই — কিন্তু যে বোঝে না কী লেখা হচ্ছে, সে-ই সবচেয়ে বেশি ঝুঁকিতে থাকে। সম্পূর্ণ রোডম্যাপ ও প্রয়োজনীয় স্কিলসহ।",
       url: "#",
-      content: "<p>AI যুগে প্রোগ্রামিং শেখার জন্য বেসিক লজিক ও প্রম্পট ইঞ্জিনিয়ারিং জানা জরুরি।</p>"
+      content: "<p>AI যুগে প্রোগ্রামিং শেখার জন্য বেসিক লজিক ও প্রম্পট ইঞ্জিনিয়ারিং জানা জরুরি।</p>"
     },
     {
       id: "a3",
       title: "প্রোডাক্টিভিটি বাড়ানোর ৫টি সহজ অভ্যাস",
       category: "Productivity",
-      date: "২০২৬-六-৩০",
+      date: "২০২৬-০৬-৩০",
       readingTime: "১০ মিনিট",
       image: "",
       excerpt: "দৈনন্দিন জীবনে ছোট কিছু পরিবর্তন কীভাবে বড় পার্থক্য তৈরি করতে পারে...",
@@ -234,7 +234,7 @@ const SITE_DATA = {
       id: "p4",
       title: "English Learning",
       icon: "🗣️",
-      description: "স্মার্ট স্পোকেন ইংলিশ শেখার একটি ইন্টারঅ্যাক্টিভ প্ল্যাটফর্ম。",
+      description: "স্মার্ট স্পোকেন ইংলিশ শেখার একটি ইন্টারঅ্যাক্টিভ প্ল্যাটফর্ম।",
       status: "পরিকল্পনায়",
       url: "#"
     },
@@ -248,7 +248,7 @@ const SITE_DATA = {
     }
   ],
 
-  /* ---------------- Mystery ---------------- */
+  /* ---------------- Mystery সেকশন ---------------- */
   mystery: {
     title: "⚠️ CICADA 3301 MYSTERY PUZZLE ⚠️",
     notice: "[SYSTEM NOTICE]: একটি অত্যন্ত জটিল ধাঁধা এবং বুদ্ধিমত্তার খেলা আপনার জন্য অপেক্ষা করছে। আপনি কি চ্যালেঞ্জটি নিতে প্রস্তুত?",
@@ -257,7 +257,7 @@ const SITE_DATA = {
     buttonUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeUXTUT5i4McPtrl27yQj3L3BYl_wGWjVKEDpnMpLnD8Sn3YQ/viewform"
   },
 
-  /* ---------------- Contact ---------------- */
+  /* ---------------- Contact সেকশন ---------------- */
   contact: {
     phone: "01133192963",
     emails: ["masumcpex@gmail.com", "masumcpex@yahoo.com"],
