@@ -162,8 +162,15 @@ const SITE_DATA = {
     }
   ],
 
-  /* ---------------- Projects ---------------- */
   projects: [
+    {
+      id: "p1",
+      title: "English Learning Hub",
+      icon: "🇬🇧",
+      description: "জিরো থেকে কনফিডেন্স সহকারে সহজে ইংরেজি শেখার প্র্যাক্টিক্যাল রিসোর্স ও রোডম্যাপ।",
+      status: "লাইভ",
+      url: "english-learning.html"
+    },
     {
       id: "p0",
       title: "Knowledge Hub",
