@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------------- JOURNAL & ARTICLES (with filters + modal) ---------------- */
   function entryCard(e){
     return `
-    <div class="entry-card" data-id="${e.id}" data-type="${e._type}">
+    <div class="entry-card" data-id="${e.id}" data-type="${e._type}" data-url="${e.url || ""}">
       <span class="cat">${e.category}</span>
       <h4>${e.title}</h4>
       <p class="excerpt">${e.excerpt}</p>
-      <span class="date">${e.date}</span>
+      <span class="date">${e.date}${e.readingTime ? " • ⏱ " + e.readingTime : ""}</span>
     </div>`;
   }
 
@@ -120,7 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   document.body.addEventListener("click", e => {
     const card = e.target.closest(".entry-card");
-    if(card) openModal(findEntry(card.dataset.id, card.dataset.type));
+    if(!card) return;
+    if(card.dataset.url){ window.location.href = card.dataset.url; return; }
+    openModal(findEntry(card.dataset.id, card.dataset.type));
   });
   document.getElementById("modalClose").addEventListener("click", () => {
     document.getElementById("readModal").classList.remove("open");
@@ -227,3 +229,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+                                             
