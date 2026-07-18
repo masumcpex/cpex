@@ -128,51 +128,7 @@ const SITE_DATA = {
       date: "২০২৬-০৭-০৫",
       image: "",
       excerpt: "নতুন কিছু শেখার সময় যে ছোট ছোট ভুল হয়, সেগুলোই আসলে শিক্ষক...",
-      content: `
-        <p><strong>ভূমিকা:</strong> বাংলাদেশের কতজন মেধাবী শিক্ষার্থী পরীক্ষার খাতায় নয়, জীবনের বাস্তব পরীক্ষায় হেরে যায় — এই সংখ্যাটা ভাবার মতো। কারণ তাদের মেধার অভাব নয়। ভালো রেজাল্ট করা একজন ছেলে হয়তো প্রথম চাকরির ইন্টারভিউতে রিজেক্ট হয়েই ভেঙে পড়ে। সমস্যাটা মেধায় না — চাপ, ব্যর্থতা আর প্রত্যাখ্যান সামলানোর মানসিক প্রস্তুতিতে।</p>
-
-        <p style="background: #FBF7EC; padding: 14px 18px; border-left: 4px solid #C79A3B; font-family: 'Noto Serif Bengali', serif; font-size: 1.05rem; margin: 20px 0;">"জীবনে সফল হতে শুধু মেধা নয়, প্রয়োজন কঠিন সময়েও দাঁড়িয়ে থাকার ক্ষমতা।"</p>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">মেন্টাল রেজিলিয়েন্স আসলে কী</h3>
-        <p>সহজ ভাষায়, কঠিন পরিস্থিতির পরেও ভেঙে না পড়ে নতুন উদ্যমে এগিয়ে যাওয়ার সক্ষমতাই মেন্টাল রেজিলিয়েন্স। এটা জন্মগত কোনো গুণ না — সাইকেল চালানো শেখার মতোই, প্রথমবার পড়ে যাওয়াটা স্বাভাবিক, আসল কথা হলো আবার উঠে বসা।</p>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">স্কুল যা শেখায়, যা শেখায় না</h3>
-        <p>আমরা ছোটবেলা থেকে গণিত, ইংরেজি, বিজ্ঞান শিখি। কিন্তু বাস্তব জীবনে সবচেয়ে বেশি কাজে লাগে এমন জিনিসগুলো প্রায় কেউই শেখায় না —</p>
-        <ul style="padding-left: 20px; line-height: 1.8;">
-          <li>ব্যর্থতার পর কীভাবে নিজেকে সামলাতে হয়</li>
-          <li>চাপের মুহূর্তে মাথা ঠান্ডা রাখার উপায়</li>
-          <li>প্রত্যাখ্যাত হওয়ার পরও নতুন করে শুরু করার সাহস</li>
-        </ul>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">স্ট্রেস: শত্রু নয়, শক্তি</h3>
-        <p style="background: #ECE2C9; padding: 14px 18px; border-radius: 8px;"><strong>গবেষণা থেকে:</strong> মনোবিজ্ঞানী Kelly McGonigal-এর ২০১১ সালের গবেষণায় একদলকে বলা হয় "স্ট্রেস তোমার শত্রু", আরেক দলকে বলা হয় "স্ট্রেস তোমাকে শক্তিশালী করে তুলতে পারে।" ফলাফলে দ্বিতীয় দলটি ভালো পারফর্ম করে, আর তাদের শরীরে স্ট্রেসের ক্ষতিকর প্রভাবও কম ছিল।</p>
-        <p>শিক্ষা পরিষ্কার — স্ট্রেস নিজে সমস্যা না, সমস্যা হলো আমরা সেটাকে কীভাবে দেখি।</p>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">মানসিকভাবে শক্ত মানুষরা যা করে</h3>
-        <ul style="padding-left: 20px; line-height: 1.9;">
-          <li><strong>ব্যর্থতাকে ফিডব্যাক হিসেবে দেখে</strong> — "আমি শেষ" না ভেবে ভাবে "কী শিখলাম?"</li>
-          <li><strong>নিজের সাথে সহানুভূতিশীল ভাষায় কথা বলে</strong> — নিজের সমালোচক না হয়ে নিজের সহযোগী হয়</li>
-          <li><strong>অস্বস্তি এড়িয়ে যায় না</strong> — Comfort Zone নিরাপদ রাখে, কিন্তু Growth Zone বদলে দেয়</li>
-        </ul>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">মস্তিষ্ক বদলাতে পারে</h3>
-        <p>মানুষের মস্তিষ্ক স্থির কিছু না। নতুন অভ্যাস আর নিয়মিত অনুশীলনের মাধ্যমে মস্তিষ্ক নতুন সংযোগ তৈরি করে (Neuroplasticity) — তাই আজ যে চাপে ভেঙে পড়ে, চর্চায় সে-ই একদিন সবচেয়ে স্থিতিশীল হতে পারে।</p>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">কীভাবে গড়ে তুলবেন</h3>
-        <ul style="padding-left: 20px; line-height: 1.9;">
-          <li>প্রতিদিন কমফোর্ট জোনের বাইরে ছোট্ট একটা কাজ করুন</li>
-          <li>ব্যর্থতার পর নিজেকে দোষ না দিয়ে কারণ খুঁজুন</li>
-          <li>শরীরচর্চা ও পর্যাপ্ত ঘুমকে গুরুত্ব দিন</li>
-          <li>প্রতিদিন জার্নাল লিখুন, ধ্যান বা গভীর শ্বাসের অভ্যাস করুন</li>
-        </ul>
-
-        <p style="background: #1B2A45; color: #F3ECDA; padding: 18px; border-radius: 8px; font-family: 'Noto Serif Bengali', serif; text-align: center; margin: 24px 0;">"ব্যর্থতা আপনার পরিচয় নয় — ব্যর্থতা শুধু আপনার পরবর্তী উন্নতির দিকনির্দেশনা।"</p>
-
-        <h3 style="color: #0E6E5C; margin-top: 25px;">উপসংহার</h3>
-        <p>শক্ত মানুষ জন্মগতভাবে শক্ত হয় না। প্রতিটি ব্যর্থতা, প্রতিটি চাপ ধীরে ধীরে মানুষকে গড়ে তোলে। আজ আপনি যে কষ্টের মধ্য দিয়ে যাচ্ছেন, সেটাই হয়তো আগামী দিনের সবচেয়ে বড় শক্তি হয়ে উঠবে।</p>
-
-        <div style="text-align: center; margin-top: 30px; font-weight: bold; color: #7A6F5D; border-top: 1px solid #ECE2C9; padding-top: 15px;">লিখেছেন: মাসুম</div>
-      `
+      content: "নতুন কিছু শেখার সময় যে ছোট ছোট ভুল হয়, সেগুলোই আসলে শিক্ষক। (এই জায়গায় আসল লেখাটি বসান — data.js এর journal অ্যারেতে content ফিল্ড এডিট করুন।)"
     },
     {
       id: "j3",
@@ -359,4 +315,18 @@ const SITE_DATA = {
   /* ---------------- Contact সেকশন ---------------- */
   contact: {
     phone: "01133192963",
-    emails: ["masumcpex@
+    emails: ["masumcpex@gmail.com", "masumcpex@yahoo.com"],
+    socials: [
+      { name: "Facebook", url: "https://www.facebook.com/share/1HM1rZJg3a/" },
+      { name: "Instagram", url: "https://www.instagram.com/masum.171" },
+      { name: "TikTok", url: "https://www.tiktok.com/@masum__171" },
+      { name: "Telegram", url: "https://t.me/masum171" },
+      { name: "Medium", url: "https://medium.com/@masumcpex" },
+      { name: "Tumblr", url: "https://www.tumblr.com/masum171" },
+      { name: "Blogger", url: "https://masum171.blogspot.com/" },
+      { name: "Gmail", url: "mailto:masumcpex@gmail.com" }
+    ]
+  }
+};
+
+       
