@@ -254,6 +254,14 @@ const SITE_DATA = {
   /* ---------------- Projects ---------------- */
   projects: [
     {
+      id: "p0",
+      title: "Knowledge Hub",
+      icon: "🗂️",
+      description: "টিমের দৈনিক হাজিরা ও কাজের ঘণ্টা লিখে রাখার ডিজিটাল খাতা — সদস্য যোগ/বাদ দেওয়া, সামারি ও রেজিস্টারসহ।",
+      status: "লাইভ",
+      url: "knowledge-hub.html"
+    },
+    {
       id: "p1",
       title: "Masum Notes",
       icon: "📝",
@@ -320,5 +328,4 @@ const SITE_DATA = {
     ]
   }
 };
-
 
