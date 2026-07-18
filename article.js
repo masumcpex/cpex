@@ -24,5 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => mainNav.classList.toggle("open"));
   }
 
+  /* ---------------- শেয়ার বাটন (নতুন — শুধু যেসব পেজে এই বাটন আছে সেখানেই কাজ করবে) ---------------- */
+  document.querySelectorAll("[data-share]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const url = window.location.href;
+      const title = document.title;
+      const platform = btn.dataset.share;
+      if(platform === "native" && navigator.share){
+        navigator.share({ title, url });
+      } else if(platform === "facebook"){
+        window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url), "_blank");
+      } else if(platform === "whatsapp"){
+        window.open("https://wa.me/?text="+encodeURIComponent(title+" — "+url), "_blank");
+      } else if(platform === "telegram"){
+        window.open("https://t.me/share/url?url="+encodeURIComponent(url)+"&text="+encodeURIComponent(title), "_blank");
+      } else if(platform === "copy"){
+        navigator.clipboard.writeText(url).then(()=>{
+          const old = btn.textContent;
+          btn.textContent = "✅ কপি হয়েছে!";
+          setTimeout(()=> btn.textContent = old, 1800);
+        });
+      }
+    });
+  });
+
 });
 

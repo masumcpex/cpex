@@ -175,3 +175,74 @@ code{
   .roadmap-num{ left: -1.8rem; width:30px; height:30px; font-size:.85rem; }
 }
 
+/* ==========================================================================
+   নিচের ক্লাসগুলো নতুন — কোনো পুরনো ক্লাস বদলানো হয়নি, তাই আগের আর্টিকেল
+   (article-ai-programming.html সহ) ভাঙার কোনো ঝুঁকি নেই।
+   ========================================================================== */
+
+/* ---------------- Author Card ---------------- */
+.author-card{
+  display:flex; align-items:center; gap: .9rem; max-width: 780px; margin: 0 auto 2.2rem;
+  padding: 1rem 1.3rem; background: var(--card-bg); border: 1px solid var(--line);
+  border-radius: 14px; box-shadow: var(--shadow);
+}
+.author-avatar{
+  width: 46px; height:46px; border-radius:50%; object-fit:cover; flex-shrink:0;
+  border: 2px solid var(--gold);
+}
+.author-name{ font-family: var(--font-display); color: var(--ink); font-weight:700; font-size: .96rem; }
+.author-role{ color: var(--muted); font-size: .82rem; }
+
+/* ---------------- Sticky Table of Contents ---------------- */
+.article-toc{
+  max-width: 780px; margin: 0 auto 2rem; background: var(--card-bg);
+  border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow); position: sticky; top: 10px; z-index: 20;
+}
+.article-toc h5{
+  font-family: var(--font-util); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--gold); margin: 0 0 .7rem; font-weight:700;
+}
+.article-toc ol{ margin:0; padding-left: 1.1rem; }
+.article-toc li{ margin-bottom: .4rem; }
+.article-toc a{ color: var(--ink); font-size: .9rem; font-weight:600; text-decoration:none; }
+.article-toc a:hover{ color: var(--teal); }
+
+/* ---------------- শেয়ার / কপি লিংক ---------------- */
+.share-row{
+  display:flex; gap: .6rem; flex-wrap:wrap; justify-content:center;
+  max-width: 780px; margin: 2.2rem auto; padding-top: 1.6rem; border-top: 1px solid var(--line);
+}
+.share-btn{
+  display:inline-flex; align-items:center; gap:.4rem; padding: .6rem 1.1rem;
+  border-radius: 999px; border: 1.5px solid var(--line); background: var(--card-bg);
+  color: var(--ink); font-size:.85rem; font-weight:600; cursor:pointer; font-family: var(--font-body);
+  text-decoration:none; transition: all .18s ease;
+}
+.share-btn:hover{ background: var(--teal); color:#fff; border-color: var(--teal); }
+
+/* ---------------- চেকলিস্ট ---------------- */
+.checklist-box{
+  background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px;
+  padding: 1.3rem 1.5rem; margin: 1.6rem 0;
+}
+.checklist-item{
+  display:flex; align-items:flex-start; gap:.7rem; padding: .55rem 0;
+  border-bottom: 1px solid var(--line); font-size: .96rem;
+}
+.checklist-item:last-child{ border-bottom:none; }
+.checklist-item input[type=checkbox]{ width:19px; height:19px; margin-top:2px; accent-color: var(--teal); flex-shrink:0; }
+
+/* ---------------- উপসংহার কার্ড ---------------- */
+.conclusion-card{
+  background: linear-gradient(150deg, var(--teal), var(--teal-dark)); color:#fff;
+  border-radius: 16px; padding: 1.8rem 2rem; margin: 2rem 0; text-align:center;
+}
+.conclusion-card p{ margin:0; font-size: 1.02rem; line-height:1.85; }
+
+/* ---------------- ফুটার কোট ---------------- */
+.footer-quote-block{
+  text-align:center; padding: 2.6rem 1.4rem; background: var(--ink); color: var(--gold);
+  font-family: var(--font-display); font-size: 1.1rem; line-height:1.85;
+}
+
