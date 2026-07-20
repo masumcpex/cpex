@@ -229,10 +229,19 @@ const SITE_DATA = {
       excerpt: "মনোযোগই আজকের বিশ্বের সবচেয়ে দামি পণ্য। ইনফ্লুয়েন্সার কালচার, অ্যালগরিদম আর সোশ্যাল কম্পারিজন কীভাবে আমাদের নিজেদের ব্যর্থ মনে করাচ্ছে — একটি গভীর বিশ্লেষণ।",
       url: "article-attention-economy.html",
       content: ""
+    },
+    {
+      id: "j5",
+      title: "অসমাপ্ত অনুভূতির ডায়েরি",
+      category: "Daily Notes",
+      date: "২০২৬-০৭-১৯",
+      readingTime: "৯ মিনিট",
+      image: "",
+      excerpt: "ভালোবাসা, বন্ধুত্ব, কষ্ট, বিশ্বাস আর জীবনের ছোট ছোট উপলব্ধির একগুচ্ছ ভাঙা টুকরো — কিছু মুহূর্তের ডায়েরি, যা হয়তো আপনারও চেনা লাগবে।",
+      url: "journal-unfinished-feelings.html",
+      content: ""
     }
   ],
-
-  /* ---------------- Articles ---------------- */
   articleCategories: ["সব", "বাংলাদেশের শিক্ষাব্যবস্থা", "ইংরেজি শেখা", "AI", "Programming", "Construction", "Productivity", "স্কিল ডেভেলপমেন্ট", "জীবন ও মানসিকতা"],
 
   articles: [
@@ -305,6 +314,17 @@ const SITE_DATA = {
       image: "",
       excerpt: "মনোযোগই আজকের বিশ্বের সবচেয়ে দামি পণ্য। ইনফ্লুয়েন্সার কালচার, অ্যালগরিদম, Dunning-Kruger Effect আর সোশ্যাল কম্পারিজনের গভীর বিশ্লেষণ — গবেষণা ও সোর্স-সহ।",
       url: "article-attention-economy.html",
+      content: ""
+    },
+    {
+      id: "a7",
+      title: "অসমাপ্ত অনুভূতির ডায়েরি",
+      category: "জীবন ও মানসিকতা",
+      date: "২০২৬-০৭-১৯",
+      readingTime: "৯ মিনিট",
+      image: "",
+      excerpt: "ভালোবাসা, বন্ধুত্ব, কষ্ট, বিশ্বাস আর জীবনের ছোট ছোট উপলব্ধির একগুচ্ছ ভাঙা টুকরো — কিছু মুহূর্তের ডায়েরি, যা হয়তো আপনারও চেনা লাগবে।",
+      url: "journal-unfinished-feelings.html",
       content: ""
     }
   ],
