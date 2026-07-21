@@ -167,5 +167,3 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSummary();
   renderRegister();
 });
-
-
