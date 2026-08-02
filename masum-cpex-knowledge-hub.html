@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masum CPEx — Build Knowledge That Lasts</title>
+<meta name="description" content="Masum CPEx — A personal Knowledge Hub: books, articles, daily journal, learning resources and personal projects, all in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F3E7;
+    --cream-deep:#F1E9D6;
+    --navy:#183153;
+    --navy-deep:#0F2038;
+    --emerald:#1E9E74;
+    --emerald-soft:#E4F4EE;
+    --ink:#1C2530;
+    --ink-soft:#5B6472;
+    --white:#FFFFFF;
+    --radius:20px;
+    --shadow-soft: 0 10px 30px -10px rgba(24,49,83,0.12), 0 2px 8px rgba(24,49,83,0.06);
+    --shadow-lift: 0 24px 48px -16px rgba(24,49,83,0.22), 0 4px 12px rgba(24,49,83,0.08);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', 'Hind Siliguri', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Poppins','Hind Siliguri',sans-serif;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  ::selection{background:var(--emerald);color:#fff;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--emerald);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(15,32,56,0.72);
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    transition:background .4s ease;
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 32px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .logo{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:1.25rem;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    letter-spacing:-0.01em;
+  }
+  .logo .mark{
+    width:34px;height:34px;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--emerald),#2fc491);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;font-weight:800;color:#0F2038;
+    box-shadow:0 4px 14px rgba(30,158,116,0.45);
+  }
+  .nav-links{
+    display:flex;
+    gap:6px;
+    list-style:none;
+  }
+  .nav-links a{
+    color:rgba(255,255,255,0.78);
+    font-size:0.92rem;
+    font-weight:500;
+    padding:9px 16px;
+    border-radius:999px;
+    transition:all .25s ease;
+    position:relative;
+  }
+  .nav-links a:hover{
+    color:#fff;
+    background:rgba(255,255,255,0.08);
+  }
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .nav-cta .btn-mini{
+    background:var(--emerald);
+    color:#fff;
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:0.88rem;
+    font-weight:600;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .nav-cta .btn-mini:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(30,158,116,0.4);
+  }
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:110px 0 90px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--emerald-soft);
+    color:var(--emerald);
+    font-weight:600;
+    font-size:0.82rem;
+    padding:7px 16px;
+    border-radius:999px;
+    margin-bottom:24px;
+    letter-spacing:0.02em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--emerald);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.7rem);
+    font-weight:700;
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{
+    color:var(--emerald);
+    position:relative;
+  }
+  .hero p.subtitle{
+    font-size:1.13rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+    max-width:520px;
+    margin-bottom:36px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    position:relative;
+    overflow:hidden;
+    padding:15px 28px;
+    border-radius:14px;
+    font-weight:600;
+    font-size:0.98rem;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    transition:transform .3s cubic-bezier(.2,.9,.3,1), box-shadow .3s ease;
+  }
+  .btn-primary{
+    background:var(--navy);
+    color:#fff;
+    box-shadow:var(--shadow-soft);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-lift);
+  }
+  .btn-secondary{
+    background:#fff;
+    color:var(--navy);
+    border:1.5px solid rgba(24,49,83,0.14);
+  }
+  .btn-secondary:hover{
+    transform:translateY(-3px);
+    border-color:var(--emerald);
+    box-shadow:var(--shadow-soft);
+  }
+  .ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.5);
+    transform:scale(0);
+    animation:ripple .6s ease-out;
+    pointer-events:none;
+  }
+  @keyframes ripple{ to{transform:scale(3.2); opacity:0;} }
+
+  /* Hero illustration - abstract geometric knowledge artwork */
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-art svg{ width:100%; height:100%; }
+  .float-slow{ animation:floaty 7s ease-in-out infinite; }
+  .float-mid{ animation:floaty 5.5s ease-in-out infinite; animation-delay:.4s; }
+  .float-fast{ animation:floaty 4s ease-in-out infinite; animation-delay:.8s; }
+  @keyframes floaty{
+    0%,100%{ transform:translateY(0px) rotate(0deg); }
+    50%{ transform:translateY(-14px) rotate(3deg); }
+  }
+
+  /* Profile card */
+  .profile-card{
+    margin-top:64px;
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.7);
+    border-radius:var(--radius);
+    padding:20px 26px;
+    display:inline-flex;
+    align-items:center;
+    gap:18px;
+    box-shadow:var(--shadow-soft);
+    max-width:560px;
+  }
+  .profile-photo{
+    width:58px;height:58px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--navy),var(--emerald));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:1.2rem;
+    flex-shrink:0;
+    box-shadow:0 6px 16px rgba(24,49,83,0.25);
+  }
+  .profile-card h4{ font-size:1.02rem; margin-bottom:2px; }
+  .profile-card .role{ color:var(--emerald); font-size:0.85rem; font-weight:600; margin-bottom:4px; }
+  .profile-card .quote{ color:var(--ink-soft); font-size:0.86rem; font-style:italic; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding:100px 0; }
+  .section-alt{ background:var(--cream-deep); }
+  .section-head{
+    text-align:center;
+    max-width:620px;
+    margin:0 auto 56px;
+  }
+  .section-head .eyebrow{ margin-bottom:18px; }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.5rem);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .section-head p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; }
+
+  /* reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.3,1);
+  }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ---------- KNOWLEDGE HUB CARDS ---------- */
+  .hub-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .hub-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:34px 26px;
+    box-shadow:var(--shadow-soft);
+    transition:transform .35s cubic-bezier(.2,.8,.3,1), box-shadow .35s ease;
+    border:1px solid rgba(24,49,83,0.05);
+  }
+  .hub-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lift);
+  }
+  .hub-icon{
+    width:56px;height:56px;
+    border-radius:16px;
+    background:var(--emerald-soft);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;
+    margin-bottom:20px;
+  }
+  .hub-card h3{ font-size:1.15rem; margin-bottom:10px; }
+  .hub-card p{ color:var(--ink-soft); font-size:0.92rem; line-height:1.55; }
+
+  /* ---------- FEATURED BOOKS ---------- */
+  .book-row{ display:flex; flex-direction:column; gap:20px; }
+  .book-card{
+    display:flex;
+    gap:26px;
+    background:#fff;
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s ease, box-shadow .3s ease;
+    align-items:center;
+  }
+  .book-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lift); }
+  .book-cover{
+    width:96px; height:130px;
+    border-radius:12px;
+    flex-shrink:0;
+    background:linear-gradient(160deg,var(--navy),#254875);
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,0.85);
+    font-size:1.6rem;
+    box-shadow:0 10px 20px -6px rgba(24,49,83,0.35);
+  }
+  .book-info h3{ font-size:1.12rem; margin-bottom:8px; }
+  .book-info p{ color:var(--ink-soft); font-size:0.9rem; line-height:1.55; margin-bottom:14px; }
+  .link-arrow{
+    color:var(--emerald);
+    font-weight:600;
+    font-size:0.88rem;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:gap .25s ease;
+  }
+  .link-arrow:hover{ gap:10px; }
+
+  /* ---------- ARTICLES GRID ---------- */
+  .articles-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .article-card{
+    background:#fff;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .article-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+  .article-img{
+    height:170px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.2rem;
+    color:#fff;
+  }
+  .article-body{ padding:24px; }
+  .article-cat{
+    color:var(--emerald);
+    font-size:0.78rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-bottom:10px;
+    display:block;
+  }
+  .article-body h3{ font-size:1.08rem; margin-bottom:10px; line-height:1.35; }
+  .article-body p{ color:var(--ink-soft); font-size:0.88rem; line-height:1.55; margin-bottom:16px; }
+
+  /* ---------- JOURNAL TIMELINE ---------- */
+  .timeline{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:6px; bottom:6px;
+    width:2px;
+    background:linear-gradient(to bottom, var(--emerald), rgba(30,158,116,0.15));
+  }
+  .timeline-item{
+    position:relative;
+    padding-left:70px;
+    margin-bottom:34px;
+  }
+  .timeline-dot{
+    position:absolute;
+    left:16px; top:4px;
+    width:26px;height:26px;
+    border-radius:50%;
+    background:#fff;
+    border:3px solid var(--emerald);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.85rem;
+  }
+  .timeline-card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px 22px;
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .timeline-card:hover{ transform:translateX(4px); box-shadow:var(--shadow-lift); }
+  .timeline-date{ color:var(--ink-soft); font-size:0.8rem; font-weight:600; margin-bottom:6px; }
+  .timeline-card h4{ font-size:1.02rem; margin-bottom:10px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-photo{
+    aspect-ratio:4/5;
+    border-radius:var(--radius);
+    background:linear-gradient(150deg,var(--navy),#2a4d7d 60%, var(--emerald));
+    box-shadow:var(--shadow-lift);
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,0.9);
+    font-family:'Poppins',sans-serif;
+    font-size:5rem;
+    font-weight:700;
+  }
+  .about-tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:20px 0 22px;
+  }
+  .about-tags span{
+    background:var(--emerald-soft);
+    color:var(--emerald);
+    padding:7px 15px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:600;
+  }
+  .about-grid h2{ font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:6px; }
+  .about-grid > div > p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.7; margin-bottom:28px; max-width:520px; }
+  .about-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.7);
+    padding:70px 0 30px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .footer-logo{
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:1.2rem;
+    margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  footer p{ font-size:0.9rem; line-height:1.6; max-width:320px; }
+  footer h5{ color:#fff; font-size:0.95rem; margin-bottom:16px; font-weight:600; }
+  footer ul{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+  footer ul a{ font-size:0.9rem; transition:color .25s ease; }
+  footer ul a:hover{ color:var(--emerald); }
+  .social-row{ display:flex; gap:12px; margin-top:4px; }
+  .social-row a{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.07);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .social-row a:hover{ background:var(--emerald); transform:translateY(-3px); }
+  .footer-bottom{
+    padding-top:26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.85rem;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .nav-links{ display:none; }
+    .nav-toggle{
+      display:flex; color:#fff; font-size:1.4rem; background:none;
+    }
+    .hero-grid{ grid-template-columns:1fr; text-align:center; }
+    .hero p.subtitle{ margin-left:auto; margin-right:auto; }
+    .hero-actions{ justify-content:center; }
+    .profile-card{ margin-left:auto; margin-right:auto; display:flex; }
+    .hero-art{ max-width:340px; margin:40px auto 0; }
+    .hub-grid{ grid-template-columns:repeat(2,1fr); }
+    .articles-grid{ grid-template-columns:1fr; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-photo{ max-width:320px; margin:0 auto; aspect-ratio:1/1; }
+    .footer-grid{ grid-template-columns:1fr; }
+    .book-card{ flex-direction:column; text-align:center; }
+  }
+  @media (max-width:600px){
+    .container{ padding:0 20px; }
+    .nav-inner{ padding:14px 20px; }
+    .hub-grid{ grid-template-columns:1fr; }
+    .section{ padding:70px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="mark">M</span>
+      Masum CPEx
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#hub">Knowledge Hub</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn-mini">Contact Me</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Personal Knowledge Hub</span>
+      <h1>Build Knowledge <span class="accent">That Lasts.</span></h1>
+      <p class="subtitle">Books, Articles, Daily Journal, Learning Resources and Personal Projects — Everything I create in one place.</p>
+      <div class="hero-actions">
+        <a href="#hub" class="btn btn-primary" data-ripple>📚 Explore Library</a>
+        <a href="#journal" class="btn btn-secondary" data-ripple>✍️ Read Today's Journal</a>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-photo">MB</div>
+        <div>
+          <h4>Masum Billah</h4>
+          <div class="role">Writer • Learner • Builder</div>
+          <div class="quote">"Learning never stops."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art reveal">
+      <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="240" cy="240" r="200" fill="#E4F4EE"/>
+        <g class="float-slow">
+          <rect x="90" y="110" width="120" height="150" rx="18" fill="#183153"/>
+          <rect x="105" y="130" width="90" height="8" rx="4" fill="#F8F3E7" opacity="0.5"/>
+          <rect x="105" y="150" width="70" height="8" rx="4" fill="#F8F3E7" opacity="0.35"/>
+          <rect x="105" y="170" width="80" height="8" rx="4" fill="#F8F3E7" opacity="0.35"/>
+        </g>
+        <g class="float-mid">
+          <rect x="250" y="200" width="140" height="100" rx="16" fill="#1E9E74"/>
+          <circle cx="290" cy="240" r="14" fill="#F8F3E7" opacity="0.6"/>
+          <rect x="316" y="232" width="60" height="7" rx="3.5" fill="#F8F3E7" opacity="0.5"/>
+          <rect x="316" y="248" width="45" height="7" rx="3.5" fill="#F8F3E7" opacity="0.3"/>
+        </g>
+        <g class="float-fast">
+          <circle cx="150" cy="320" r="46" fill="#FFFFFF" stroke="#183153" stroke-width="3"/>
+          <path d="M132 320 L145 333 L170 305" stroke="#1E9E74" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </g>
+        <g class="float-mid">
+          <rect x="270" y="90" width="70" height="70" rx="14" fill="#183153" opacity="0.9" transform="rotate(12 305 125)"/>
+        </g>
+        <g class="float-slow">
+          <circle cx="360" cy="330" r="24" fill="#1E9E74" opacity="0.85"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE HUB -->
+<section id="hub" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What's Inside</span>
+      <h2>Knowledge Hub</h2>
+      <p>Four spaces, one purpose — turning what I learn into something worth sharing.</p>
+    </div>
+    <div class="hub-grid">
+      <div class="hub-card reveal">
+        <div class="hub-icon">📘</div>
+        <h3>Books</h3>
+        <p>English learning books, PDFs and premium notes.</p>
+      </div>
+      <div class="hub-card reveal">
+        <div class="hub-icon">📰</div>
+        <h3>Articles</h3>
+        <p>Technology, Education, Programming and Life.</p>
+      </div>
+      <div class="hub-card reveal">
+        <div class="hub-icon">📖</div>
+        <h3>Daily Journal</h3>
+        <p>Daily thoughts, stories and experiences.</p>
+      </div>
+      <div class="hub-card reveal">
+        <div class="hub-icon">🚀</div>
+        <h3>Projects</h3>
+        <p>Personal projects, experiments and ideas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED BOOKS -->
+<section id="books" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured Books</span>
+      <h2>From the Library</h2>
+      <p>Notes and books I've written to make learning English simpler and lasting.</p>
+    </div>
+    <div class="book-row">
+      <div class="book-card reveal">
+        <div class="book-cover">📗</div>
+        <div class="book-info">
+          <h3>English Made Simple</h3>
+          <p>A grounded, practical guide to building real English fluency — grammar, vocabulary and daily practice, explained the way I wish someone had explained it to me.</p>
+          <a href="#" class="link-arrow">Read More →</a>
+        </div>
+      </div>
+      <div class="book-card reveal">
+        <div class="book-cover">📕</div>
+        <div class="book-info">
+          <h3>The Habit of Writing</h3>
+          <p>Short premium notes on building a consistent writing habit — how small daily entries compound into a body of work over time.</p>
+          <a href="#" class="link-arrow">Read More →</a>
+        </div>
+      </div>
+      <div class="book-card reveal">
+        <div class="book-cover">📙</div>
+        <div class="book-info">
+          <h3>Notes on Learning</h3>
+          <p>A collection of study frameworks, memory techniques and reflections on what actually helps knowledge stick.</p>
+          <a href="#" class="link-arrow">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST ARTICLES -->
+<section id="articles" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest Articles</span>
+      <h2>Fresh Thinking</h2>
+      <p>Writing on technology, education, programming and everyday life.</p>
+    </div>
+    <div class="articles-grid">
+      <div class="article-card reveal">
+        <div class="article-img" style="background:linear-gradient(135deg,#183153,#2a4d7d);">💻</div>
+        <div class="article-body">
+          <span class="article-cat">Programming</span>
+          <h3>How AI Is Changing the Way We Learn to Code</h3>
+          <p>A look at how AI-assisted tools are reshaping the programmer's daily workflow, for better and for worse.</p>
+          <a href="#" class="link-arrow">Read Article →</a>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img" style="background:linear-gradient(135deg,#1E9E74,#2fc491);">🎓</div>
+        <div class="article-body">
+          <span class="article-cat">Education</span>
+          <h3>Rethinking the Education System in Bangladesh</h3>
+          <p>Reflections on what's broken, what's working, and what a better path forward could look like.</p>
+          <a href="#" class="link-arrow">Read Article →</a>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img" style="background:linear-gradient(135deg,#5B6472,#1C2530);">🌱</div>
+        <div class="article-body">
+          <span class="article-cat">Life</span>
+          <h3>Small Daily Habits That Actually Compound</h3>
+          <p>Why the boring, repeatable habits matter more than the dramatic ones — and how to keep them going.</p>
+          <a href="#" class="link-arrow">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL TIMELINE -->
+<section id="journal" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Daily Journal</span>
+      <h2>Recent Entries</h2>
+      <p>Unfiltered thoughts, written as they come.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">😊</div>
+        <div class="timeline-card">
+          <div class="timeline-date">August 1, 2026</div>
+          <h4>Unfinished Feelings</h4>
+          <a href="#" class="link-arrow">Read Journal →</a>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">🌧️</div>
+        <div class="timeline-card">
+          <div class="timeline-date">July 28, 2026</div>
+          <h4>A Quiet Kind of Progress</h4>
+          <a href="#" class="link-arrow">Read Journal →</a>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">🔥</div>
+        <div class="timeline-card">
+          <div class="timeline-date">July 22, 2026</div>
+          <h4>Why I Started Building in Public</h4>
+          <a href="#" class="link-arrow">Read Journal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS teaser (kept lightweight, links to hub card concept) -->
+<section id="projects" class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Projects</span>
+      <h2>What I'm Building</h2>
+      <p>Personal tools and experiments — including this site, and a Firebase-powered team attendance tracker.</p>
+    </div>
+    <div class="hub-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="hub-card reveal">
+        <div class="hub-icon">🗂️</div>
+        <h3>Knowledge Hub Tracker</h3>
+        <p>A Firebase Firestore attendance system with multi-provider login and duplicate-entry protection.</p>
+      </div>
+      <div class="hub-card reveal">
+        <div class="hub-icon">🌐</div>
+        <h3>Masum CPEx Website</h3>
+        <p>This very site — a warm, paper-toned digital home for everything I write and build.</p>
+      </div>
+      <div class="hub-card reveal">
+        <div class="hub-icon">📓</div>
+        <h3>Masum Notes</h3>
+        <p>A Next.js and Tailwind-powered notes and blogging space with Bengali typography support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div class="about-photo reveal">MB</div>
+    <div class="reveal">
+      <span class="eyebrow">About Me</span>
+      <h2>Hi, I'm Masum Billah</h2>
+      <div class="about-tags">
+        <span>Writer</span>
+        <span>Learner</span>
+        <span>Builder</span>
+        <span>Knowledge Explorer</span>
+      </div>
+      <p>I believe that knowledge grows when it is shared. This website is my personal space where I publish books, articles, journals and projects.</p>
+      <div class="about-actions">
+        <a href="#about" class="btn btn-primary" data-ripple>About Me</a>
+        <a href="#contact" class="btn btn-secondary" data-ripple>Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="mark" style="width:30px;height:30px;font-size:0.9rem;">M</span>
+          Masum CPEx
+        </div>
+        <p>A personal Knowledge Hub for books, articles, journals and projects — built to grow, one entry at a time.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hub">Knowledge Hub</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in Touch</h5>
+        <p style="margin-bottom:16px;">hello@masumcpex.com</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="GitHub">💻</a>
+          <a href="#" aria-label="Email">✉️</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Masum CPEx. All Rights Reserved.</span>
+      <span>Made with care in Malaysia.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+  revealEls.forEach(el=>io.observe(el));
+
+  // Nav background intensifies on scroll
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 40){
+      nav.style.background = 'rgba(15,32,56,0.92)';
+    } else {
+      nav.style.background = 'rgba(15,32,56,0.72)';
+    }
+  });
+
+  // Button ripple effect
+  document.querySelectorAll('[data-ripple]').forEach(btn=>{
+    btn.addEventListener('click', function(e){
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(()=>ripple.remove(), 650);
+    });
+  });
+
+  // Mobile nav toggle (simple show/hide of links as a stacked panel)
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', ()=>{
+    const isOpen = links.style.display === 'flex';
+    links.style.display = isOpen ? 'none' : 'flex';
+    links.style.cssText += `
+      ${isOpen ? '' : `
+        position:absolute; top:64px; left:0; right:0; flex-direction:column;
+        background:rgba(15,32,56,0.97); backdrop-filter:blur(18px);
+        padding:16px 24px; gap:4px;
+      `}
+    `;
+  });
+</script>
+
+</body>
+</html>
