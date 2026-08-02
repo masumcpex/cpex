@@ -5,18 +5,18 @@
    ========================================================================== */
 
 :root{
-  --paper:      #F3ECDA;
-  --paper-2:    #ECE2C9;
-  --ink:        #1B2A45;
-  --ink-2:      #23375B;
-  --charcoal:   #26221D;
-  --muted:      #7A6F5D;
-  --teal:       #0E6E5C;
-  --teal-dark:  #0A5347;
-  --gold:       #C79A3B;
-  --line:       rgba(27,42,69,0.16);
-  --card-bg:    #FBF7EC;
-  --shadow:     0 10px 30px rgba(27,42,69,0.10);
+  --paper:      #F8F3E7;
+  --paper-2:    #F1E9D6;
+  --ink:        #183153;
+  --ink-2:      #0F2038;
+  --charcoal:   #1C2530;
+  --muted:      #5B6472;
+  --teal:       #1E9E74;
+  --teal-dark:  #167857;
+  --gold:       #C9973F;
+  --line:       rgba(24,49,83,0.14);
+  --card-bg:    #FFFFFF;
+  --shadow:     0 10px 30px -8px rgba(24,49,83,0.16);
 
   --font-display: 'Noto Serif Bengali', serif;
   --font-body:    'Hind Siliguri', sans-serif;
@@ -198,13 +198,15 @@ img{ max-width:100%; display:block; }
   display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1.2rem;
 }
 .highlight-card{
-  background: var(--card-bg); border:1px solid var(--line); border-radius: 16px;
-  padding: 1.3rem; box-shadow: var(--shadow); position:relative;
+  background: var(--card-bg); border:1px solid var(--line); border-radius: 20px;
+  padding: 1.4rem; box-shadow: var(--shadow); position:relative;
+  transition: transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s ease;
 }
+.highlight-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(24,49,83,0.22); }
 .highlight-card .tag{ font-family: var(--font-util); font-size:.68rem; letter-spacing:.12em; color: var(--gold); font-weight:700; }
 .highlight-card h4{ font-family: var(--font-display); color: var(--ink); margin:.5rem 0 .4rem; font-size:1.05rem; }
 .highlight-card p{ color: var(--muted); font-size:.9rem; margin:0 0 .8rem; }
-.highlight-card a{ color: var(--teal); font-weight:600; font-size:.88rem; }
+.highlight-card a{ color: var(--teal-dark); font-weight:600; font-size:.88rem; }
 
 /* ---------------- ABOUT ---------------- */
 .about-grid{ display:flex; gap: 2rem; align-items:flex-start; flex-wrap:wrap; margin: 1.5rem 0 2rem; }
@@ -216,55 +218,71 @@ img{ max-width:100%; display:block; }
 .stat-row .stat .lbl{ color: var(--muted); font-size:.85rem; }
 
 /* ---------------- CARD GRID (Library / Projects) ---------------- */
-.card-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1.6rem; }
+.card-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 1.8rem; }
 .book-card{
-  background: var(--card-bg); border-radius: 16px; overflow:hidden;
+  background: var(--card-bg); border-radius: 20px; overflow:hidden;
   border: 1px solid var(--line); box-shadow: var(--shadow);
   display:flex; flex-direction:column;
+  transition: transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s ease;
+}
+.book-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px -14px rgba(24,49,83,0.26);
 }
 .book-cover{ width:100%; aspect-ratio: 3/4; object-fit:cover; background: var(--paper-2); }
-.book-body{ padding: 1.1rem 1.2rem 1.3rem; display:flex; flex-direction:column; flex:1; }
-.book-cat{ font-family: var(--font-util); font-size:.68rem; letter-spacing:.1em; color: var(--gold); font-weight:700; text-transform: uppercase; }
-.book-title{ font-family: var(--font-display); font-size:1.05rem; margin: .4rem 0 .5rem; color: var(--ink); }
-.book-desc{ color: var(--muted); font-size:.88rem; flex:1; margin-bottom: .8rem; }
-.book-meta{ font-size:.78rem; color: var(--muted); margin-bottom: .9rem; display:flex; gap:.8rem; }
-.book-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
-.book-actions a{
-  font-size:.82rem; font-weight:600; padding:.45rem .8rem; border-radius:8px;
-  border: 1px solid var(--teal); color: var(--teal);
+.book-body{ padding: 1.3rem 1.35rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+.book-cat{
+  font-family: var(--font-util); font-size:.66rem; letter-spacing:.1em; font-weight:700;
+  text-transform: uppercase; color: var(--teal-dark); background: rgba(30,158,116,.1);
+  display:inline-block; padding:.3rem .7rem; border-radius:999px; width:fit-content;
 }
-.book-actions a.solid{ background: var(--teal); color:#fff; }
-.book-actions a:hover{ opacity:.85; }
-.book-card.locked .book-cover{ filter: grayscale(1) brightness(.75); }
-.book-card.locked .book-actions a{ border-color: var(--muted); color: var(--muted); pointer-events:none; }
+.book-title{ font-family: var(--font-display); font-size:1.08rem; margin: .6rem 0 .5rem; color: var(--ink); line-height:1.4; }
+.book-desc{ color: var(--muted); font-size:.88rem; flex:1; margin-bottom: .9rem; }
+.book-meta{ font-size:.78rem; color: var(--muted); margin-bottom: 1rem; display:flex; gap:.8rem; }
+.book-actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+.book-actions a{
+  font-size:.82rem; font-weight:600; padding:.5rem .95rem; border-radius:999px;
+  border: 1.5px solid var(--teal); color: var(--teal-dark);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.book-actions a.solid{ background: var(--teal); color:#fff; border-color: var(--teal); box-shadow: 0 6px 16px rgba(30,158,116,.32); }
+.book-actions a:hover{ transform: translateY(-2px); background: var(--teal); color:#fff; }
+.book-card.locked{ opacity:.92; }
+.book-card.locked .book-cover{ filter: grayscale(1) brightness(.8); }
+.book-card.locked .book-actions a{ border-color: var(--line); color: var(--muted); pointer-events:none; background:none; }
 
 /* project cards */
 .projects-grid .book-card{ padding: 0; }
-.project-icon{ font-size:1.8rem; padding: 1.1rem 1.2rem 0; }
+.project-icon{
+  font-size:1.7rem; width:52px; height:52px; margin: 1.3rem 1.35rem 0;
+  border-radius: 14px; background: rgba(30,158,116,.1);
+  display:flex; align-items:center; justify-content:center;
+}
 .project-status{
-  display:inline-block; margin-top:.4rem; font-family: var(--font-util);
-  font-size:.68rem; letter-spacing:.08em; padding:.2rem .6rem; border-radius:999px;
+  display:inline-block; margin-top:.6rem; font-family: var(--font-util);
+  font-size:.68rem; letter-spacing:.08em; font-weight:700; padding:.25rem .7rem; border-radius:999px;
   background: var(--paper-2); color: var(--teal-dark); width:fit-content;
 }
 
 /* ---------------- LIST GRID (Journal / Articles) ---------------- */
-.filter-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom: 1.8rem; }
+.filter-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom: 2rem; }
 .chip{
-  font-family: var(--font-util); font-size:.8rem; padding:.4rem .9rem; border-radius:999px;
+  font-family: var(--font-util); font-size:.8rem; font-weight:600; padding:.45rem 1rem; border-radius:999px;
   border: 1px solid var(--line); color: var(--muted); cursor:pointer; background: var(--card-bg);
-  transition: all .15s;
+  transition: all .2s ease;
 }
 .chip.active, .chip:hover{ background: var(--ink); color:#fff; border-color: var(--ink); }
 
-.list-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.4rem; }
+.list-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
 .entry-card{
-  background: var(--card-bg); border:1px solid var(--line); border-radius: 14px;
-  padding: 1.3rem; cursor:pointer; transition: transform .15s, box-shadow .15s;
+  background: var(--card-bg); border:1px solid var(--line); border-radius: 18px;
+  padding: 1.4rem; cursor:pointer; box-shadow: var(--shadow);
+  transition: transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s ease;
 }
-.entry-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
-.entry-card .cat{ font-family: var(--font-util); font-size:.68rem; letter-spacing:.1em; color: var(--gold); font-weight:700; text-transform:uppercase; }
-.entry-card h4{ font-family: var(--font-display); color: var(--ink); margin:.5rem 0 .4rem; font-size:1.08rem; }
-.entry-card .excerpt{ color: var(--muted); font-size:.9rem; margin-bottom:.7rem; }
+.entry-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(24,49,83,0.24); }
+.entry-card .cat{ font-family: var(--font-util); font-size:.66rem; letter-spacing:.1em; color: var(--gold); font-weight:700; text-transform:uppercase; }
+.entry-card h4{ font-family: var(--font-display); color: var(--ink); margin:.6rem 0 .5rem; font-size:1.08rem; line-height:1.4; }
+.entry-card .excerpt{ color: var(--muted); font-size:.9rem; margin-bottom:.8rem; }
 .entry-card .date{ font-size:.78rem; color: var(--muted); }
 
 /* ---------------- MYSTERY ---------------- */
