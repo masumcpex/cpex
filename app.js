@@ -4,22 +4,34 @@ const ICON_LINK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" s
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const MOBILE_QUERY = "(max-width:860px)";
+  const MOBILE_PHOTO = "bdflag.webp";
+
+  function applyResponsivePhoto(imgEl, desktopSrc, isMobile){
+    if (!imgEl) return;
+    imgEl.src = isMobile ? MOBILE_PHOTO : desktopSrc;
+  }
+
   const hero = SITE_DATA.hero;
-  const heroPhoto = document.getElementById("heroPhoto");
-  if (heroPhoto) { heroPhoto.src = hero.photo; heroPhoto.alt = hero.name; }
+  const brandMarkImg = document.querySelector(".brand-mark img");
+  const aboutPhotoEl = document.getElementById("aboutPhoto");
+  const about = SITE_DATA.about;
+
+  const mql = window.matchMedia(MOBILE_QUERY);
+  function syncPhotos(e){
+    const isMobile = e.matches;
+    applyResponsivePhoto(brandMarkImg, "photo.png", isMobile);
+    applyResponsivePhoto(aboutPhotoEl, about.photo, isMobile);
+  }
+  syncPhotos(mql);
+  mql.addEventListener("change", syncPhotos);
+
   setText("heroName", hero.name);
   setText("heroRole", hero.role);
   setText("heroTagline", hero.tagline);
-  const heroCta = document.getElementById("heroCta");
-  if (heroCta) {
-    heroCta.textContent = hero.ctaText;
-    heroCta.href = hero.ctaLink;
-  }
 
-  const about = SITE_DATA.about;
   setText("aboutTitle", about.title);
-  const aboutPhoto = document.getElementById("aboutPhoto");
-  if (aboutPhoto) { aboutPhoto.src = about.photo; aboutPhoto.alt = hero.name; }
+  if (aboutPhotoEl) { aboutPhotoEl.alt = hero.name; }
 
   const aboutText = document.getElementById("aboutText");
   if (aboutText) {

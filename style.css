@@ -395,6 +395,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .about-photo{ width:140px; margin:0 auto; }
 }
 
+
 .timeline{
   position:relative;
   display:grid;
