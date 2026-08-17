@@ -1,18 +1,30 @@
 :root{
-  --color-bg:          #12141B;
-  --color-bg-soft:     #171A23;
-  --color-surface:     #1B1E28;
-  --color-surface-hi:  #232733;
-  --color-text:        #EDE7D8;
-  --color-text-dim:    #C9C2AE;
-  --color-muted:       #8B8574;
-  --color-border:      #2A2E3A;
-  --color-accent:      #C9A15A;
-  --color-accent-soft: rgba(201,161,90,0.14);
-  --color-accent-2:    #6E8CA0;
-  --color-success:     #5FAE7E;
-  --color-warning:     #D9A441;
-  --color-error:       #C96257;
+  /* Primary backgrounds */
+  --color-bg:          #F8FAFC;
+  --color-bg-soft:     #F1F5F9;
+  --color-surface:     #FFFFFF;
+  --color-surface-hi:  #FFFFFF;
+  --color-dark:        #1E293B;
+
+  /* Text */
+  --color-text:        #0F172A;
+  --color-text-dim:    #475569;
+  --color-muted:       #64748B;
+
+  /* Border */
+  --color-border:      #E2E8F0;
+
+  /* Accent */
+  --color-accent:      #2563EB;
+  --color-accent-hover:#1D4ED8;
+  --color-accent-soft: #EFF6FF;
+  --color-accent-border:#BFDBFE;
+  --color-accent-2:    #2563EB;
+
+  /* Status */
+  --color-success:     #16A34A;
+  --color-warning:     #D97706;
+  --color-error:       #DC2626;
 
   --container-width: 1080px;
   --container-narrow: 720px;
@@ -28,8 +40,8 @@
   --radius-lg: 20px;
   --radius-full: 999px;
 
-  --shadow-soft: 0 8px 30px rgba(0,0,0,0.35);
-  --shadow-glow: 0 0 60px rgba(201,161,90,0.10);
+  --shadow-soft: 0 8px 24px rgba(15,23,42,0.08);
+  --shadow-glow: 0 0 40px rgba(37,99,235,0.08);
 
   --transition-fast: 150ms ease;
   --transition-normal: 280ms cubic-bezier(.22,.61,.36,1);
@@ -126,7 +138,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(18,20,27,0.72);
+  background:rgba(255,255,255,0.82);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid transparent;
@@ -134,7 +146,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .site-header.is-scrolled{
   border-bottom-color:var(--color-border);
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  box-shadow:0 10px 24px rgba(15,23,42,0.06);
 }
 
 .header-inner{
@@ -173,13 +185,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .main-nav a{
   font-size:0.92rem;
-  color:var(--color-text-dim);
+  color:#334155;
   transition:color var(--transition-fast);
   position:relative;
   padding:0.25rem 0;
 }
 .main-nav a:hover,
-.main-nav a.is-active{ color:var(--color-text); }
+.main-nav a.is-active{ color:var(--color-accent); }
 .main-nav a.is-active::after{
   content:"";
   position:absolute;
@@ -312,14 +324,15 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .btn-primary{
   background:var(--color-accent);
-  color:#171207;
+  color:#FFFFFF;
 }
-.btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+.btn-primary:hover{ background:var(--color-accent-hover); transform:translateY(-1px); }
 .btn-outline{
-  border-color:var(--color-border);
-  color:var(--color-text);
+  background:#FFFFFF;
+  border-color:var(--color-accent);
+  color:var(--color-accent);
 }
-.btn-outline:hover{ border-color:var(--color-accent); color:var(--color-accent); }
+.btn-outline:hover{ background:var(--color-accent-soft); border-color:var(--color-accent-hover); color:var(--color-accent-hover); }
 
 .card-grid, .list-grid{
   display:grid;
@@ -336,7 +349,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .card:hover{
   transform:translateY(-3px);
-  border-color:var(--color-accent);
+  border-color:var(--color-accent-border);
   box-shadow:var(--shadow-soft);
 }
 .card-eyebrow{ font-size:0.72rem; color:var(--color-accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem; }
@@ -521,7 +534,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 .modal-overlay{
   position:fixed; inset:0;
-  background:rgba(10,11,15,0.7);
+  background:rgba(15,23,42,0.5);
   backdrop-filter:blur(4px);
   display:flex; align-items:flex-start; justify-content:center;
   padding:var(--space-4) var(--space-2);
@@ -549,12 +562,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .site-footer{
   text-align:center;
   padding:var(--space-4) var(--space-3) var(--space-5);
-  color:var(--color-muted);
+  color:#CBD5E1;
   font-size:0.85rem;
-  border-top:1px solid var(--color-border);
+  background:var(--color-dark);
   margin-top:var(--space-5);
 }
-.site-footer strong{ color:var(--color-accent); }
+.site-footer strong{ color:#FFFFFF; }
+.site-footer a{ color:#E2E8F0; }
+.site-footer a:hover{ color:#60A5FA; }
 
 .page{ scroll-margin-top:90px; }
 
