@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   searchClose?.addEventListener("click", () => searchPanel?.classList.remove("is-open"));
 
-  const revealEls = document.querySelectorAll(".card, .section-title, .hero");
+  const revealEls = document.querySelectorAll(".card, .section-title, .hero, .timeline-item");
   revealEls.forEach(el => el.classList.add("reveal"));
 
   if ("IntersectionObserver" in window) {

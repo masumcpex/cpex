@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  renderJourney("journeyTimeline", SITE_DATA.journey);
+
   renderGrid("bookGrid", SITE_DATA.library, (item) => `
     <article class="card">
       <div class="card-eyebrow">Book</div>
@@ -90,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const latestArticle = SITE_DATA.articles[0];
     const featuredProject = SITE_DATA.projects[0];
     const items = [
-      latestBook && { label: "সর্বশেষ বই", title: latestBook.title, link: "#library" },
+      latestBook && { label: "সর্বশেষ বই", title: latestBook.title, link: "https://masumcpex.com/index.html#library" },
       latestJournal && { label: "সর্বশেষ জার্নাল", title: latestJournal.title, link: "#journal" },
       latestArticle && { label: "সর্বশেষ আর্টিকেল", title: latestArticle.title, link: "#articles" },
       featuredProject && { label: "ফিচার্ড প্রজেক্ট", title: featuredProject.title, link: "#projects" }
@@ -148,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchResults = document.getElementById("searchResults");
   if (searchInput && searchResults) {
     const searchIndex = [
-      ...SITE_DATA.library.map(i => ({ ...i, type: "বই", link: "#library" })),
+      ...SITE_DATA.library.map(i => ({ ...i, type: "বই", link: "https://masumcpex.com/index.html#library" })),
       ...SITE_DATA.journal.map(i => ({ ...i, type: "জার্নাল", link: "#journal" })),
       ...SITE_DATA.articles.map(i => ({ ...i, type: "আর্টিকেল", link: "#articles" })),
       ...SITE_DATA.projects.map(i => ({ ...i, type: "প্রজেক্ট", link: "#projects" }))
@@ -166,6 +168,24 @@ document.addEventListener("DOMContentLoaded", () => {
   function setText(id, text) {
     const el = document.getElementById(id);
     if (el) el.textContent = text || "";
+  }
+
+  function renderJourney(containerId, items) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    if (!items || !items.length) { el.remove(); return; }
+    el.innerHTML = items.map((item, idx) => `
+      <div class="timeline-item ${idx % 2 === 0 ? "is-up" : "is-down"}" style="--i:${idx}">
+        <div class="timeline-card">
+          <h3 class="timeline-title">${escapeHTML(item.title)}</h3>
+          <p class="timeline-desc">${escapeHTML(item.description)}</p>
+        </div>
+        <div class="timeline-node">
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">${escapeHTML(item.year)}</span>
+        </div>
+      </div>
+    `).join("");
   }
 
   function renderGrid(containerId, items, template, emptyTitle, emptyDesc) {
