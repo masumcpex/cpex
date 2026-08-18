@@ -1,7 +1,7 @@
 const SITE_DATA = {
 
   hero: {
-    photo: "bd.jpg",
+    photo: "bd.png",
     name: "Masum",
     role: "Writer • Learner • Builder]",
     tagline: "[এক লাইনের ট্যাগলাইন]",
