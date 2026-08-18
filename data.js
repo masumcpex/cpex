@@ -18,7 +18,7 @@ const SITE_DATA = {
 
   about: {
     title: "porichiti",
-    photo: "bd.jpg",
+    photo: "bd.png",
     paragraphs: [
       "[amar somporke 1-2 paragraph likhon —]"
     ],

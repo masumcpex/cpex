@@ -4,27 +4,11 @@ const ICON_LINK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" s
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const MOBILE_QUERY = "(max-width:860px)";
-  const MOBILE_PHOTO = "bd.jpg";
-
-  function applyResponsivePhoto(imgEl, desktopSrc, isMobile){
-    if (!imgEl) return;
-    imgEl.src = isMobile ? MOBILE_PHOTO : desktopSrc;
-  }
-
   const hero = SITE_DATA.hero;
-  const brandMarkImg = document.querySelector(".brand-mark img");
   const aboutPhotoEl = document.getElementById("aboutPhoto");
   const about = SITE_DATA.about;
 
-  const mql = window.matchMedia(MOBILE_QUERY);
-  function syncPhotos(e){
-    const isMobile = e.matches;
-    applyResponsivePhoto(brandMarkImg, "photo.png", isMobile);
-    applyResponsivePhoto(aboutPhotoEl, about.photo, isMobile);
-  }
-  syncPhotos(mql);
-  mql.addEventListener("change", syncPhotos);
+  if (aboutPhotoEl) { aboutPhotoEl.src = about.photo; }
 
   setText("heroName", hero.name);
   setText("heroRole", hero.role);

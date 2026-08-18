@@ -14,8 +14,11 @@ style.css         পুরো ডিজাইন সিস্টেম
 data.js           সব content এখানে — নতুন লেখা/বই/প্রজেক্ট যোগ করতে শুধু এই ফাইল এডিট করুন
 app.js            data.js থেকে content render করে (হাত দেওয়ার দরকার নেই)
 ui.js             visual enhancement — মোবাইল মেনু, sticky header, scroll reveal
-photo.png         আপনার ছবি
-favicon-16/32/180/192/512.png, favicon.ico   বিভিন্ন সাইজের আইকন
+yellow.webp       হেডারের ছোট সার্কুলার প্রোফাইল ছবি
+bd.png            হিরো সেকশনের মূল বড় ছবি (about সেকশনেও ব্যবহৃত)
+favicon.ico, favicon-16.png, favicon-32.png,
+apple-touch-icon.png, android-chrome-192.png,
+android-chrome-512.png, site.webmanifest        আইকন ও PWA ম্যানিফেস্ট
 CNAME             GitHub Pages custom domain (masumcpex.bro.bd)
 robots.txt / sitemap.xml   SEO
 ```
