@@ -175,7 +175,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   display:block;
 }
 @media (max-width:640px){
-  .brand-mark{ width:46px; height:46px; }
+  .brand-mark{ width:48px; height:48px; }
 }
 .brand-name{
   font-family:var(--font-display);
@@ -207,6 +207,26 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 
 .header-tools{ display:flex; align-items:center; gap:0.4rem; }
+
+.header-cta{
+  display:none;
+  align-items:center;
+  gap:0.28rem;
+  background:var(--color-accent);
+  color:#fff;
+  font-size:0.78rem;
+  font-weight:600;
+  padding:0.45rem 0.75rem;
+  border-radius:var(--radius-full);
+  white-space:nowrap;
+  transition:background var(--transition-fast);
+}
+.header-cta svg{ flex-shrink:0; }
+.header-cta:hover{ background:var(--color-accent-hover); color:#fff; }
+
+@media (max-width:860px){
+  .header-cta{ display:inline-flex; }
+}
 .icon-btn{
   background:transparent;
   border:1px solid var(--color-border);
