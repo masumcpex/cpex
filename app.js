@@ -5,7 +5,7 @@ const ICON_LINK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" s
 document.addEventListener("DOMContentLoaded", () => {
 
   const MOBILE_QUERY = "(max-width:860px)";
-  const MOBILE_PHOTO = "bdflag.webp";
+  const MOBILE_PHOTO = "bd.jpg";
 
   function applyResponsivePhoto(imgEl, desktopSrc, isMobile){
     if (!imgEl) return;
