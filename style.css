@@ -1,27 +1,23 @@
 :root{
-  /* Primary backgrounds */
+  
   --color-bg:          #F8FAFC;
   --color-bg-soft:     #F1F5F9;
   --color-surface:     #FFFFFF;
   --color-surface-hi:  #FFFFFF;
   --color-dark:        #1E293B;
 
-  /* Text */
   --color-text:        #0F172A;
   --color-text-dim:    #475569;
   --color-muted:       #64748B;
 
-  /* Border */
   --color-border:      #E2E8F0;
 
-  /* Accent */
   --color-accent:      #2563EB;
   --color-accent-hover:#1D4ED8;
   --color-accent-soft: #EFF6FF;
   --color-accent-border:#BFDBFE;
   --color-accent-2:    #2563EB;
 
-  /* Status */
   --color-success:     #16A34A;
   --color-warning:     #D97706;
   --color-error:       #DC2626;
@@ -408,7 +404,6 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .about-photo{ width:140px; margin:0 auto; }
 }
 
-
 .timeline{
   position:relative;
   display:grid;
@@ -520,7 +515,6 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .timeline-item.is-up:hover .timeline-card,
   .timeline-item.is-down:hover .timeline-card{ transform:translateY(-2px); }
 }
-
 
 .social-row{ display:flex; justify-content:center; gap:0.7rem; margin-top:var(--space-3); flex-wrap:wrap; }
 .social-row a{
