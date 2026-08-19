@@ -1,52 +1,67 @@
-# Personal Site — masumcpex.bro.bd
+# Work Attendance — Step 1: Project Foundation
 
-ফ্রেশ, data-driven personal website। ডিজাইন কনসেপ্ট: "Reading Lamp" —
-গাঢ় ইঙ্ক-নেভি ব্যাকগ্রাউন্ডে উষ্ণ সোনালি (amber) হাইলাইট।
+## What's included
+- React + Vite project structure
+- Supabase client (`src/supabaseClient.js`) using the publishable/anon key only
+- Routing foundation (`react-router-dom`) with a placeholder Home page and 404
+- `.env` / `.env.example` for environment variables
+- No dashboard, attendance, or reports features yet — intentionally out of scope for Step 1
 
-## গঠন — ইচ্ছাকৃতভাবে সম্পূর্ণ ফ্ল্যাট (কোনো সাবফোল্ডার নেই)
-মোবাইল ব্রাউজার দিয়ে GitHub-এ আপলোড করলে ফোল্ডার স্ট্রাকচার রাখা যায় না —
-তাই সব ফাইল সরাসরি repo root-এ থাকার জন্যই বানানো হয়েছে।
-
+## File structure
 ```
-index.html        হোমপেজ
-404.html          এরর পেজ
-style.css         পুরো ডিজাইন সিস্টেম
-data.js           সব content এখানে — নতুন লেখা/বই/প্রজেক্ট যোগ করতে শুধু এই ফাইল এডিট করুন
-app.js            data.js থেকে content render করে (হাত দেওয়ার দরকার নেই)
-ui.js             visual enhancement — মোবাইল মেনু, sticky header, scroll reveal
-yellow.webp       হেডারের ছোট সার্কুলার প্রোফাইল ছবি
-bd.png            হিরো সেকশনের মূল বড় ছবি (about সেকশনেও ব্যবহৃত)
-favicon.ico, favicon-16.png, favicon-32.png,
-apple-touch-icon.png, android-chrome-192.png,
-android-chrome-512.png, site.webmanifest        আইকন ও PWA ম্যানিফেস্ট
-CNAME             GitHub Pages custom domain (masumcpex.bro.bd)
-robots.txt / sitemap.xml   SEO
-```
-
-## আপলোড করার নিয়ম
-এই সবগুলো ফাইল **একসাথে সিলেক্ট করে** GitHub repo-র root-এ "Add files via
-upload" দিয়ে ড্র্যাগ করবেন। কোনো ফোল্ডার তৈরি করার দরকার নেই — সব ফাইল
-পাশাপাশি (flat) থাকবে, ঠিক যেভাবে এখানে দেওয়া আছে।
-
-## নতুন content যোগ করবেন কীভাবে
-`data.js` ফাইলে গিয়ে যেই সেকশনে content যোগ করতে চান (hero, about, journey,
-library, journal, articles, projects, contact), সেখানে entry বসিয়ে দিন।
-Design ভাঙবে না, নতুন কার্ড/এন্ট্রি নিজে থেকেই render হয়ে যাবে।
-
-## প্রতিটা সেকশনের ফিল্ড গঠন
-```
-journey:   { year, title, description }
-library:   { id, title, cover, description, link }
-journal:   { id, title, category, date, excerpt, content }
-articles:  { id, title, category, date, excerpt, content, url }
-projects:  { id, title, description, link, status }
-contact.socials: { label, url, icon }
+work-attendance/
+├── .env                  # your real Supabase credentials (never commit)
+├── .env.example          # template for teammates
+├── .gitignore
+├── index.html
+├── package.json
+├── vite.config.js
+├── README.md
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── index.css
+    ├── supabaseClient.js
+    ├── components/
+    │   └── Layout.jsx
+    └── pages/
+        ├── Home.jsx
+        └── NotFound.jsx
 ```
 
-## এখনও যা placeholder আকারে আছে
-- Hero ও About-এর নাম/পরিচয়/বায়ো টেক্সট, Journey-র ৪টা মাইলস্টোনের টাইটেল/বর্ণনা
-- Library, Journal, Articles, Projects — খালি
-- Contact-এর ফোন/ইমেইল/সোশ্যাল লিংক
+## Setup (run locally, since this sandbox has no network access)
+1. Copy all files above into a folder named `work-attendance`.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Confirm `.env` has your real values (already filled in):
+   ```
+   VITE_SUPABASE_URL=https://zuzspxigzkatahmtopxa.supabase.co
+   VITE_SUPABASE_PUBLISHABLE_KEY=Sb_publishable_MdePy9Or5nOyV-e7y6Cemg_PqOTOQ8Z
+   ```
+4. Run the dev server:
+   ```bash
+   npm run dev
+   ```
+5. Build for production:
+   ```bash
+   npm run build
+   ```
 
-## গুরুত্বপূর্ণ
-Library নেভিগেশন লিংক ইচ্ছাকৃতভাবে `https://masumcpex.com/index.html#library`-এ যায়।
+Once running, the Home page will call `supabase.auth.getSession()` and show
+"Supabase client connected ✅" if the URL/key are valid — this confirms the
+Supabase wiring without requiring login or any attendance features.
+
+## Security notes
+- Only the **publishable/anon** key is used here — safe for client-side code.
+- The **service-role key** and any OAuth client secrets must never be placed
+  in this project or in any `VITE_*` variable, since Vite exposes all
+  `VITE_*` variables to the browser bundle.
+- `.env` is git-ignored by default.
+
+## Not included in Step 1 (by design)
+- Login / auth UI
+- Dashboard
+- Attendance check-in/out
+- Reports
