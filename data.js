@@ -34,9 +34,14 @@ const SITE_DATA = {
   projects: [],
 
   contact: {
-    phone: "",
-    emails: [],
-    socials: []
+    location: "Lorong Haji Taib 5, Chow Kit, 50350 Malaysia",
+    phone: "(+60) 1133192963",
+    emails: ["info@masumcpex.com"],
+    socials: [
+      { url: "https://www.facebook.com/masumcpex", label: "Facebook" },
+      { url: "https://www.instagram.com/masumcpex", label: "Instagram" },
+      { url: "https://t.me/masumcpex", label: "Telegram" }
+    ]
   }
 
 };

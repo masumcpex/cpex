@@ -1,6 +1,8 @@
-const ICON_PHONE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>';
-const ICON_MAIL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 6 12 13 2 6"></path></svg>';
 const ICON_LINK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
+const ICON_FACEBOOK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>';
+const ICON_INSTAGRAM = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>';
+const ICON_TELEGRAM = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4z"></path></svg>';
+const SOCIAL_ICONS = { Facebook: ICON_FACEBOOK, Instagram: ICON_INSTAGRAM, Telegram: ICON_TELEGRAM };
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -62,21 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
   `, "এখনও কোনো প্রজেক্ট যোগ করা হয়নি", "নতুন কিছু তৈরি করলে এখানে যোগ হবে।");
 
   const contact = SITE_DATA.contact;
+  setText("contactLocation", contact.location || "");
   const phoneEl = document.getElementById("contactPhone");
   if (phoneEl) {
-    if (contact.phone) { phoneEl.innerHTML = ICON_PHONE + escapeHTML(contact.phone); }
-    else { phoneEl.remove(); }
+    if (contact.phone) { phoneEl.textContent = contact.phone; }
+    else { phoneEl.closest(".contact-info-item")?.remove(); }
   }
   const emailEl = document.getElementById("contactEmails");
   if (emailEl) {
-    if (contact.emails && contact.emails.length) { emailEl.innerHTML = ICON_MAIL + escapeHTML(contact.emails.join(" / ")); }
-    else { emailEl.remove(); }
+    if (contact.emails && contact.emails.length) { emailEl.textContent = contact.emails.join(" / "); }
+    else { emailEl.closest(".contact-info-item")?.remove(); }
   }
   const socialRow = document.getElementById("socialRow");
   if (socialRow) {
     if (contact.socials && contact.socials.length) {
       socialRow.innerHTML = contact.socials.map(s => `
-        <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener" aria-label="${escapeAttr(s.label)}">${s.icon || ICON_LINK}</a>
+        <a href="${escapeAttr(s.url)}" target="_blank" rel="noopener" aria-label="${escapeAttr(s.label)}">${SOCIAL_ICONS[s.label] || ICON_LINK}</a>
       `).join("");
     }
   }

@@ -8,11 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
-  if (menuToggle && mainNav) {
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    const closeMobileMenu = () => {
+      mobileMenu.classList.remove("is-open");
+      menuToggle.classList.remove("is-active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    };
     menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("is-open");
+      const isOpen = mobileMenu.classList.toggle("is-open");
+      menuToggle.classList.toggle("is-active", isOpen);
       menuToggle.setAttribute("aria-expanded", String(isOpen));
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMobileMenu);
     });
   }
 
