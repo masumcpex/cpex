@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="card-desc">${escapeHTML(item.excerpt || "")}</p>
         <div class="card-date">${escapeHTML(item.date || "")}</div>
         <div class="card-cta">
-          <span class="btn-view">দেখুন →</span>
+          <span class="btn-view">পড়ুন →</span>
           <span class="cta-hint">এখানে ক্লিক করুন</span>
         </div>
       </article>
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const safeUrl = escapeAttr(url);
     return `
       <div class="card-cta">
-        <a class="btn-view" href="${safeUrl}" target="_blank" rel="noopener">দেখুন →</a>
+        <a class="btn-view" href="${safeUrl}" target="_blank" rel="noopener">পড়ুন →</a>
         <a class="cta-hint" href="${safeUrl}" target="_blank" rel="noopener">এখানে ক্লিক করুন</a>
       </div>`;
   }
