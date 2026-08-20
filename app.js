@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="card-eyebrow">Book</div>
       <h3 class="card-title">${escapeHTML(item.title)}</h3>
       <p class="card-desc">${escapeHTML(item.description || "")}</p>
+      ${ctaBlock(item.url)}
     </article>
   `, "এখনও কোনো বই যোগ করা হয়নি", "নতুন বই প্রকাশ হলে এখানে দেখা যাবে।");
 
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="card-eyebrow">${escapeHTML(item.status || "Project")}</div>
       <h3 class="card-title">${escapeHTML(item.title)}</h3>
       <p class="card-desc">${escapeHTML(item.description || "")}</p>
+      ${ctaBlock(item.url)}
     </article>
   `, "এখনও কোনো প্রজেক্ট যোগ করা হয়নি", "নতুন কিছু তৈরি করলে এখানে যোগ হবে।");
 
@@ -210,6 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="card-title">${escapeHTML(item.title)}</h3>
         <p class="card-desc">${escapeHTML(item.excerpt || "")}</p>
         <div class="card-date">${escapeHTML(item.date || "")}</div>
+        <div class="card-cta">
+          <span class="btn-view">দেখুন →</span>
+          <span class="cta-hint">এখানে ক্লিক করুন</span>
+        </div>
       </article>
     `).join("");
 
@@ -246,6 +252,16 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("is-open");
     document.body.style.overflow = "hidden";
     modalClose?.focus();
+  }
+
+  function ctaBlock(url) {
+    if (!url) return "";
+    const safeUrl = escapeAttr(url);
+    return `
+      <div class="card-cta">
+        <a class="btn-view" href="${safeUrl}" target="_blank" rel="noopener">দেখুন →</a>
+        <a class="cta-hint" href="${safeUrl}" target="_blank" rel="noopener">এখানে ক্লিক করুন</a>
+      </div>`;
   }
 
   function escapeHTML(str) {

@@ -449,6 +449,52 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .card-desc{ color:var(--color-text-dim); font-size:0.92rem; }
 .card-date{ color:var(--color-muted); font-size:0.8rem; margin-top:0.6rem; }
 
+.list-grid .card{ cursor:pointer; }
+
+.card-cta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0.6rem;
+  margin-top:0.9rem;
+  padding-top:0.8rem;
+  border-top:1px solid var(--color-border);
+  max-width:100%;
+}
+.btn-view{
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  flex-shrink:0;
+  background:#FFFFFF;
+  border:1px solid var(--color-accent);
+  color:var(--color-accent);
+  font-size:0.85rem;
+  font-weight:600;
+  line-height:1.3;
+  padding:0.45rem 0.95rem;
+  border-radius:var(--radius-full);
+  transition:all var(--transition-fast);
+  white-space:nowrap;
+}
+.card:hover .btn-view,
+.btn-view:hover{
+  background:var(--color-accent);
+  color:#FFFFFF;
+}
+.btn-view:active{ transform:scale(0.96); }
+.cta-hint{
+  color:var(--color-muted);
+  font-size:0.82rem;
+  line-height:1.5;
+  min-width:0;
+  word-break:break-word;
+}
+
+@media (hover:none){
+  .card:active{ transform:scale(0.98); box-shadow:var(--shadow-card); }
+}
+
 .filter-row{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:var(--space-3); }
 .chip{
   padding:0.4rem 1rem;
@@ -461,13 +507,21 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .chip.is-active, .chip:hover{ border-color:var(--color-accent); color:var(--color-accent); }
 
 .empty-state{
+  background:var(--color-surface);
   border:1px dashed var(--color-border);
   border-radius:var(--radius-lg);
   padding:var(--space-5) var(--space-3);
   text-align:center;
   color:var(--color-muted);
+  box-shadow:var(--shadow-card);
+  max-width:100%;
+  word-break:break-word;
 }
-.empty-state strong{ display:block; color:var(--color-text-dim); font-family:var(--font-display); font-size:1.1rem; margin-bottom:0.4rem; }
+.empty-state strong{ display:block; color:var(--color-text-dim); font-family:var(--font-display); font-size:1.1rem; margin-bottom:0.4rem; line-height:1.4; }
+
+@media (max-width:640px){
+  .empty-state{ padding:var(--space-4) var(--space-2); }
+}
 
 .about-grid{
   display:grid;
