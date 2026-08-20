@@ -107,6 +107,31 @@
         </div>
       </div>
 
+      <div class="att-entry-section">
+        <h2 class="att-records-title">Add Attendance</h2>
+
+        <form id="attEntryForm" class="att-entry-form">
+          <div class="att-entry-field">
+            <label for="attWorkDate">Work Date</label>
+            <input type="date" id="attWorkDate" required>
+          </div>
+
+          <div class="att-entry-field">
+            <label for="attStatus">Status</label>
+            <select id="attStatus" required>
+              <option value="Present">Present</option>
+              <option value="Leave">Leave</option>
+            </select>
+          </div>
+
+          <button type="submit" class="att-submit-btn att-entry-submit" id="attEntrySubmit">
+            Submit Attendance
+          </button>
+        </form>
+
+        <div id="attEntryStatus" class="att-status" role="status" aria-live="polite"></div>
+      </div>
+
       <div class="att-records-section">
         <h2 class="att-records-title">Attendance Records</h2>
 

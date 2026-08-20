@@ -314,6 +314,60 @@
   padding:var(--space-4) 0;
 }
 
+/* Attendance entry form */
+.att-entry-section{
+  margin-top:var(--space-3);
+  background:var(--color-surface);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-card);
+  padding:var(--space-3);
+}
+
+.att-entry-form{
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:var(--space-2);
+  align-items:end;
+}
+
+.att-entry-field{
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+
+.att-entry-field label{
+  font-size:0.82rem;
+  color:var(--color-text-dim);
+}
+
+.att-entry-field input,
+.att-entry-field select{
+  width:100%;
+  padding:0.65rem 0.9rem;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  font:inherit;
+  font-size:0.92rem;
+  background:var(--color-bg);
+  color:var(--color-text);
+}
+
+.att-entry-field input:focus-visible,
+.att-entry-field select:focus-visible{
+  outline:2px solid var(--color-accent);
+  outline-offset:2px;
+}
+
+.att-entry-submit{ white-space:nowrap; }
+
+@media (max-width: 640px){
+  .att-entry-form{
+    grid-template-columns:1fr;
+  }
+}
+
 /* Attendance records list */
 .att-records-section{
   margin-top:var(--space-3);
@@ -411,6 +465,7 @@
 
 @media (max-width: 560px){
   .att-records-section{ padding:var(--space-2); }
+  .att-entry-section{ padding:var(--space-2); }
   .att-record-row{ padding:0.6rem 0.75rem; }
 }
 

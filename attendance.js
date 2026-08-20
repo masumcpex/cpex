@@ -34,6 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const recordsListEl = document.getElementById("attRecordsList");
   const btnRetryRecords = document.getElementById("btnRetryRecords");
 
+  const entryForm = document.getElementById("attEntryForm");
+  const workDateInput = document.getElementById("attWorkDate");
+  const statusSelect = document.getElementById("attStatus");
+  const entrySubmitBtn = document.getElementById("attEntrySubmit");
+  const entryStatusEl = document.getElementById("attEntryStatus");
+
+  let currentUserId = null;
+
   function formatToday() {
     const days = ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহঃ", "শুক্র", "শনি"];
     const now = new Date();
@@ -128,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingEl.classList.add("hidden");
     dashboardEl.classList.add("hidden");
     gateEl.classList.remove("hidden");
+    currentUserId = null;
   }
 
   function showDashboard(session) {
@@ -135,8 +144,12 @@ document.addEventListener("DOMContentLoaded", () => {
     gateEl.classList.add("hidden");
     dashboardEl.classList.remove("hidden");
     userEmailEl.textContent = session?.user?.email || "";
+    currentUserId = session.user.id;
     fillDashboardStats(session);
-    loadAttendanceRecords(session.user.id);
+    loadAttendanceRecords(currentUserId);
+    if (workDateInput && !workDateInput.value) {
+      workDateInput.value = new Date().toISOString().slice(0, 10);
+    }
   }
 
   async function checkSession() {
@@ -215,6 +228,56 @@ document.addEventListener("DOMContentLoaded", () => {
   btnRetryRecords.addEventListener("click", async () => {
     const { data } = await supabaseClient.auth.getSession();
     if (data.session) loadAttendanceRecords(data.session.user.id);
+  });
+
+  function setEntryStatus(message, type) {
+    entryStatusEl.textContent = message || "";
+    entryStatusEl.classList.remove("is-error", "is-success");
+    if (type) entryStatusEl.classList.add(type);
+  }
+
+  entryForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    setEntryStatus("");
+
+    if (!currentUserId) {
+      setEntryStatus("সাবমিট করার আগে সাইন ইন করুন।", "is-error");
+      return;
+    }
+
+    const workDate = workDateInput.value;
+    const status = statusSelect.value;
+    if (!workDate) {
+      setEntryStatus("Work Date নির্বাচন করুন।", "is-error");
+      return;
+    }
+
+    entrySubmitBtn.disabled = true;
+    setEntryStatus("সাবমিট হচ্ছে...");
+
+    const { error } = await supabaseClient
+      .from("attendance")
+      .insert({
+        user_id: currentUserId,
+        work_date: workDate,
+        status: status
+      });
+
+    entrySubmitBtn.disabled = false;
+
+    if (error) {
+      if (error.code === "23505") {
+        setEntryStatus("এই তারিখের জন্য ইতিমধ্যে একটি রেকর্ড আছে — একই তারিখে দুইবার সাবমিট করা যায় না।", "is-error");
+      } else {
+        setEntryStatus("সাবমিট করা যায়নি। আবার চেষ্টা করুন।", "is-error");
+      }
+      return;
+    }
+
+    setEntryStatus("Attendance সফলভাবে যোগ হয়েছে।", "is-success");
+    entryForm.reset();
+    workDateInput.value = new Date().toISOString().slice(0, 10);
+    loadAttendanceRecords(currentUserId);
   });
 
   checkSession();
