@@ -435,7 +435,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   background:var(--color-surface);
   border:1.5px solid rgba(15,23,42,0.14);
   border-radius:var(--radius-lg);
-  padding:var(--space-3);
+  padding:var(--space-4);
   box-shadow:0 1px 3px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.09);
   transition:transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
@@ -444,9 +444,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   border-color:var(--color-accent-border);
   box-shadow:0 2px 6px rgba(15,23,42,0.08), 0 14px 28px rgba(15,23,42,0.12);
 }
-.card-eyebrow{ font-size:0.72rem; color:var(--color-accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem; }
-.card-title{ font-family:var(--font-display); font-size:1.15rem; margin-bottom:0.4rem; }
-.card-desc{ color:var(--color-text-dim); font-size:0.92rem; }
+.card-eyebrow{ font-size:0.72rem; color:var(--color-accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem; }
+.card-title{ font-family:var(--font-display); font-size:1.2rem; line-height:1.4; margin-bottom:0.6rem; }
+.card-desc{ color:var(--color-text-dim); font-size:0.94rem; line-height:1.6; }
 .card-date{ color:var(--color-muted); font-size:0.8rem; margin-top:0.6rem; }
 
 .list-grid .card{ cursor:pointer; }
@@ -455,9 +455,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
-  gap:0.6rem;
-  margin-top:0.9rem;
-  padding-top:0.8rem;
+  gap:0.7rem;
+  margin-top:1.2rem;
+  padding-top:1rem;
   border-top:1px solid var(--color-border);
   max-width:100%;
 }
